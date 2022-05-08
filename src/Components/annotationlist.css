@@ -1,4 +1,51 @@
 .annotationlist{
     width: 50%;
-    background-color: orange;
+    border: 1px solid black;
+}
+
+.title{
+    background-color: rgb(81, 69, 192);
+    font-size: 30px;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    line-height: 60px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+}
+
+.annotations{
+    display: flex;
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+    line-height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+}
+
+.annotationsActive{
+    display: flex;
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+    line-height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(81, 69, 192);
+}
+
+.annotationNumber{
+    font-size: 10px;
+    padding-left: 3px;
+    line-height: 50px;
+}
+
+.recordBody{
+    height: max-content;
+    padding: 10px;
+    line-height: 30px;
 }

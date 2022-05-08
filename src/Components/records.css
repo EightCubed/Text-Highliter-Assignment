@@ -1,4 +1,37 @@
 .records{
     width: 25%;
-    background-color: yellow;
+    border: 1px solid black;
+}
+
+.title{
+    background-color: rgb(81, 69, 192);
+    font-size: 30px;
+    height: 60px;
+    position: relative;
+    text-align: center;
+    color: white;
+    line-height: 60px;
+}
+
+.record{
+    display: flex;
+    flex-direction: row;
+    min-height: 100px;
+}
+
+.selected{
+    background-color: white;
+    height: 50px;
+    line-height: 50px;
+}
+
+.unselected{
+    background-color: rgb(235, 233, 242);
+    height: 50px;
+    line-height: 50px;
+}
+
+.body{
+    font-size: 16px;
+    text-overflow: ellipsis;
 }
