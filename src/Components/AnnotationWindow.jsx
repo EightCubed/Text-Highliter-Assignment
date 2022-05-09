@@ -9,7 +9,7 @@ const AnnotationWindow = ({data=[],annotationList,selected,handleRemove}) =>{
 
     return(
         <div className='annotationwindow'>
-            <div className='title'>Annotations</div>
+            <div className='title3'>Annotations</div>
             <table>{annotationList.map( (element) => {
                 if(element.id===selected)
                 {

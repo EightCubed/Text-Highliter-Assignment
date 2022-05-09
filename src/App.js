@@ -56,7 +56,7 @@ const annotationListData=[
       },
       {
         "id": 1,
-        "text": "buried",
+        "text": "ocean",
         "annotation": 1,
       },
       {
@@ -81,7 +81,7 @@ const annotationListData=[
       },
       {
         "id": 3,
-        "text": "ante",
+        "text": "lorem",
         "annotation": 1,
       },
       {
@@ -99,7 +99,6 @@ const annotationListData=[
 function App() {
 
   const [selectedID,setSelectedID]=useState(null)
-  const [data,setData]=useState(recordsData);
   const [annotationList,setAnnotationList]=useState(annotationListData)
 
   const changeRecord = (id) => {
@@ -108,15 +107,21 @@ function App() {
 
   const handleRemove = (text) => {
     const newList = annotationList.filter(c => c.text !== text );
-    console.log(newList)
     setAnnotationList(newList);
+  }
+
+  const handleAdd = (data,activeAnnotation) => {
+    const newList = annotationList.filter(c => c);
+    newList.push({"id": activeAnnotation, "text": data, "annotation": 1})
+    setAnnotationList(newList)
+    console.log(newList)
   }
 
   return (
     <div className="App">
-      <Records data={data} selected={selectedID} changeRecord={changeRecord} />
-      <AnnotationList data={data} selected={selectedID} annotations={Annotations} annotationList={annotationList}/>
-      <AnnotationWindow data={data} selected={selectedID} handleRemove={handleRemove} annotationList={annotationList}/>
+      <Records data={recordsData} selected={selectedID} changeRecord={changeRecord} />
+      <AnnotationList data={recordsData} selected={selectedID} handleAdd={handleAdd} annotations={Annotations} annotationList={annotationList}/>
+      <AnnotationWindow data={recordsData} selected={selectedID} handleRemove={handleRemove} annotationList={annotationList}/>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const Records = ({data ,selected ,changeRecord }) =>{
 
     return(
         <div className='records'>
-            <div className='title'>Records</div>
+            <div className='title1'>Records</div>
             {data.map(({id,heading,body})=> 
                 <div className='record' key={id} onClick={(e)=>handleChange(e,id)} className={id===selected?'selected':'unselected'}>
                     <div className='body'>

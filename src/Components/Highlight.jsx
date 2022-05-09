@@ -1,7 +1,11 @@
 import { isEmpty } from 'lodash';
 import './highlight.css';
 
-const Highlight = ({text='',searchWords=[]}) => {
+const constantAnnot={};
+constantAnnot['Person']=1;
+constantAnnot['Org']=2;
+
+const Highlight = ({text='',activeAnnotation=0,handleAdd,searchWords=[]}) => {
 
     const nullArray=isEmpty(searchWords);
     const array=text.split(" ");
@@ -14,7 +18,9 @@ const Highlight = ({text='',searchWords=[]}) => {
         annotationArray[`${element.text}`]=temp;
     });
 
-    console.log(annotationArray)
+    const handleSelect = () => {
+        handleAdd(window.getSelection().toString(),activeAnnotation);
+    }
 
     return(
         <div className='textBody'>
@@ -23,12 +29,16 @@ const Highlight = ({text='',searchWords=[]}) => {
                 (array.map( (element) =>{
                     if( annotationText.includes(element))
                     {    
-                        console.log(element)
-                        return <mark className='annot'>{element}<mark className='annotName'>{annotationArray[`${element}`]}</mark></mark>
+                        if ( activeAnnotation===0 )
+                            return <mark className='annot'>{element}<mark className='annotName'>{annotationArray[`${element}`]}</mark></mark>
+                        else if ( constantAnnot[annotationArray[`${element}`]]===activeAnnotation )
+                            return <mark className='annot'>{element}<mark className='annotName'>{annotationArray[`${element}`]}</mark></mark>
+                        else
+                            return <p>{element}{' '}</p>
                     }
                     else
                     {
-                        return <p>{element}{' '}</p>
+                        return <p onMouseUp={handleSelect}>{element}{' '}</p>
                     }
                 }))
             }
