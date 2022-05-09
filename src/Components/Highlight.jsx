@@ -4,30 +4,27 @@ const Highlight = ({text='',searchWords=[]}) => {
 
     let array=[];
     let count=0;
-    let done=false;
 
     searchWords.forEach(element => {
         const start=text.search(element.text);
         const end=text.search(element.text)+element.text.length-1;
         array.push(start,end,element.text,element.annotation);
-        console.log(array)
     });
 
     return(
         <div className='textBody'>
+            {/* eslint-disable-next-line */}
             {text.split("").map((character,i) => {
-            if(done===true)
-                count+=3;
-            done=false;
+            if( i>array[count+1] && count<array.length/4)
+            {
+                count+=4;
+            }
             if( i<array[count] || i>array[count+1])
             {   
-                return <>{character}</>
+                return <p>{character}</p>
             }
-            for(let temp=i;temp<array[count+2].length;temp++)
-            {
-                done=true;
-                return <mark>{character}</mark>
-            }
+            if(i===array[count+1])
+                return <p className='annot'>{array[count+2]}<p className='annotName'>{array[count+3]===1?"Person":"Org"}</p></p>
             })}
         </div>
     );

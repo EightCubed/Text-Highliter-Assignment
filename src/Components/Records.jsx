@@ -2,7 +2,7 @@
 import React from 'react';
 import './records.css';
 
-const MAX_LENGTH=40;
+const MAX_LENGTH=38;
 
 const Records = ({data ,selected ,changeRecord }) =>{
     
@@ -17,8 +17,8 @@ const Records = ({data ,selected ,changeRecord }) =>{
                 <div className='record' key={id} onClick={(e)=>handleChange(e,id)} className={id===selected?'selected':'unselected'}>
                     <div className='body'>
                         {body.length > MAX_LENGTH ?
-                        (<div>
-                            {id} . {' '} 
+                        (<div className='list'>
+                            {id+1} . {' '} 
                             {`${body.substring(0, MAX_LENGTH)}...`}
                         </div>
                         ) :

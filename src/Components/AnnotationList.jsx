@@ -1,9 +1,16 @@
 import React from 'react';
 import './annotationlist.css';
-import Highlighter from 'react-highlight-words';
 import Highlight from './Highlight';
 
-const AnnotationList = ({data=[],annotations=[],selected=0}) =>{
+const AnnotationList = ({data=[],annotations=[],selected,annotationList}) =>{
+
+    let thisAnnotation=[]
+    thisAnnotation=annotationList.filter( c => {
+        if( c.id === selected)
+            return c
+    });
+    console.log(thisAnnotation)
+
 
     return(
         <div className='annotationlist'>
@@ -15,13 +22,7 @@ const AnnotationList = ({data=[],annotations=[],selected=0}) =>{
             {data.map( data => 
                 (data.id===selected && 
                 <div className='recordBody' key={data.id}>
-                    <Highlight text={data.body} searchWords={data.annotations} />
-                    {/* <Highlighter
-                        highlightClassName="YourHighlightClass"
-                        searchWords={data.annotations}
-                        autoEscape={true}
-                        textToHighlight={data.body}
-                    /> */}
+                    <Highlight text={data.body} searchWords={thisAnnotation} />
                 </div>)
             )}
         </div>

@@ -1,7 +1,20 @@
-.normal{
-    display: flex;
-}
-
 .textBody{
     display: inline-block;
+}
+
+.annot{
+    background-color: rgb(247, 226, 155);
+    width: max-content;
+    padding: 3px 5px 3px 5px;
+}
+
+.annotName{
+    font-size: 14px;
+    vertical-align: sub;
+    color: blue;
+    padding-left: 3px;
+}
+
+p{
+    display: inline;
 }
