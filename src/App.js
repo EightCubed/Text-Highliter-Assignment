@@ -112,9 +112,9 @@ function App() {
 
   const handleAdd = (data,activeAnnotation) => {
     const newList = annotationList.filter(c => c);
-    newList.push({"id": activeAnnotation, "text": data, "annotation": 1})
+    if(data!=='')
+      newList.push({"id": activeAnnotation, "text": data, "annotation": 1})
     setAnnotationList(newList)
-    console.log(newList)
   }
 
   return (

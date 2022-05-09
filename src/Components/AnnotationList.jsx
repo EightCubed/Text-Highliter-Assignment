@@ -16,7 +16,7 @@ const AnnotationList = ({data=[],annotations=[],handleAdd,selected,annotationLis
     }
 
     const handleAddAnnotation = (data,activeAnnotation) => {
-        handleAdd(data,activeAnnotation)
+        handleAdd(data,selected)
     }
 
     return(
