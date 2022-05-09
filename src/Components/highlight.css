@@ -9,10 +9,12 @@
 }
 
 .annotName{
+    background-color: rgb(247, 226, 155);
     font-size: 14px;
     vertical-align: sub;
     color: blue;
     padding-left: 3px;
+    padding-right: 3px;
 }
 
 p{

@@ -25,6 +25,11 @@ const recordsData = [
     "heading": "Record 4",
     "body": "Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla",
   },
+  {
+    "id": 4,
+    "heading": "Record 5",
+    "body": "Twinkle, twinkle, little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle, twinkle, little star How I wonder what you are Twinkle, twinkle, little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle, twinkle, little star How I wonder what you are Twinkle, twinkle, little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle, twinkle, little star How I wonder what you are Twinkle, twinkle, little star How I wonder what you are Up above the world so high Like a diamond in the sky Twinkle, twinkle, little star How I wonder what you are",
+  },
 ]
 
 const Annotations = [
@@ -84,6 +89,11 @@ const annotationListData=[
         "text": "Aliquam",
         "annotation": 2,
       },
+      {
+        "id":4,
+        "text": "star",
+        "annotation": 1,
+      }
     ]
 
 function App() {

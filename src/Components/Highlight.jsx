@@ -1,31 +1,37 @@
+import { isEmpty } from 'lodash';
 import './highlight.css';
 
 const Highlight = ({text='',searchWords=[]}) => {
 
-    let array=[];
-    let count=0;
+    const nullArray=isEmpty(searchWords);
+    const array=text.split(" ");
+    const annotationText=[];
+    const annotationArray={};
 
     searchWords.forEach(element => {
-        const start=text.search(element.text);
-        const end=text.search(element.text)+element.text.length-1;
-        array.push(start,end,element.text,element.annotation);
+        annotationText.push(element.text)
+        const temp=element.annotation===1?"Person":"Org";
+        annotationArray[`${element.text}`]=temp;
     });
+
+    console.log(annotationArray)
 
     return(
         <div className='textBody'>
-            {/* eslint-disable-next-line */}
-            {text.split("").map((character,i) => {
-            if( i>array[count+1] && count<array.length/4)
-            {
-                count+=4;
+            {nullArray && <div>{text}</div>}
+            {!nullArray && 
+                (array.map( (element) =>{
+                    if( annotationText.includes(element))
+                    {    
+                        console.log(element)
+                        return <mark className='annot'>{element}<mark className='annotName'>{annotationArray[`${element}`]}</mark></mark>
+                    }
+                    else
+                    {
+                        return <p>{element}{' '}</p>
+                    }
+                }))
             }
-            if( i<array[count] || i>array[count+1])
-            {   
-                return <p>{character}</p>
-            }
-            if(i===array[count+1])
-                return <p className='annot'>{array[count+2]}<p className='annotName'>{array[count+3]===1?"Person":"Org"}</p></p>
-            })}
         </div>
     );
 }

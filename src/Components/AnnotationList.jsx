@@ -9,8 +9,6 @@ const AnnotationList = ({data=[],annotations=[],selected,annotationList}) =>{
         if( c.id === selected)
             return c
     });
-    console.log(thisAnnotation)
-
 
     return(
         <div className='annotationlist'>
