@@ -19,6 +19,7 @@ const AnnotationWindow = ({data=[],annotationList,selected,handleRemove}) =>{
                                 <th onClick={(e)=>handleDelete(e,element.text)}>&#10006;</th>
                             </tr>
                 }
+                return <></>
             })}</table>
         </div>
     );
